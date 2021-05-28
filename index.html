@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Digital Clock Created with Javascript">
+        <meta name="viewport" content="width-device-width,initial-scale=1">
+        <title>Digital Clock in JS</title>
+        <link rel="stylesheet" type="text/css" href="clock.css">
+    </head>
+    <body>
+        <div id="form"><span>Your local time</span></div>
+        <div id="clock"></div>
+        <button id="btn1" type="button">ClickMe</button>
+        <script src="JS/jquary.js" type="text/javascript"></script>  
+        <script src=clock.js>
+            $(document).ready(function()
+            {
+                $("#btn1").click(function(){
+                    alert("HI");
+                });
+
+
+                $("#clock").mouseenter(function(){
+                    var currentTime=new Date();
+                    var hours=currentTime.getHours();
+                    var minutes=currentTime.getMinutes();
+                    var seconds=currentTime.getSeconds();
+                    var period="AM";
+
+
+
+                    if(hours>=12)
+                    {
+                        period="PM";
+                    }
+                    if(hours>12)
+                    {
+                        hours=hours-12;
+                    }
+                    if(seconds<10)
+                    {
+                        seconds="0"+ seconds;
+                    }
+                    if(minutes<10)
+                    {
+                        minutes="0"+minutes;
+                    }
+
+                    var clockTime=hours +":" + minutes+":" + seconds+" "+period;
+
+                    var clock=document.getElementById('clock');
+                    clock.innerText=clockTime;
+
+                 });
+
+                 
+             
+
+
+
+            })
+        </script>
+    </body>
+
+</html>
